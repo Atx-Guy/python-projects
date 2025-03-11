@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Converter</title>
+</head>
+<body>
+    <h1>File Converter</h1>
+    <form method="POST" action="/convert" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileInput"><br><br>
+        <div id="conversionOptions" style="display: none;">
+            <input type="hidden" name="input_format" id="inputFormat">
+            Output Format:
+            <select name="output_format" id="outputFormat">
+            </select><br><br>
+            <input type="submit" value="Convert">
+        </div>
+    </form>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const conversionOptions = document.getElementById('conversionOptions');
+        const outputFormat = document.getElementById('outputFormat');
+        const inputFormat = document.getElementById('inputFormat');
+
+        fileInput.addEventListener('change', function() {
+            const file = fileInput.files[0];
+            if (file) {
+                const fileName = file.name;
+                const fileExtension = '.' + fileName.split('.').pop().toLowerCase();
+                inputFormat.value = fileExtension;
+                const availableFormats = getAvailableFormats(fileExtension);
+                outputFormat.innerHTML = '';
+                availableFormats.forEach(format => {
+                    const option = document.createElement('option');
+                    option.value = format;
+                    option.textContent = format;
+                    outputFormat.appendChild(option);
+                });
+                conversionOptions.style.display = 'block';
+            } else {
+                conversionOptions.style.display = 'none';
+            }
+        });
+
+        function getAvailableFormats(inputFormat) {
+            if (inputFormat === '.txt') {
+                return ['.html', '.pdf', '.docx', '.md', '.rtf'];
+            } else if (inputFormat === '.html') {
+                return ['.txt', '.pdf', '.md', '.rtf', '.docx'];
+            } else if (inputFormat === '.md') {
+                return ['.html', '.pdf', '.docx', '.txt', '.rtf'];
+            } else if (inputFormat === '.rtf') {
+                return ['.pdf', '.txt', '.docx'];
+            } else if (inputFormat === '.docx') {
+                return ['.txt', '.pdf', '.md', '.rtf'];
+            } else if (inputFormat === '.mp3') {
+                return ['.wav', '.ogg', '.flac'];
+            } else if (inputFormat === '.wav') {
+                return ['.mp3', '.ogg', '.flac'];
+            } else if (inputFormat === '.ogg') {
+                return ['.mp3', '.wav', '.flac'];
+            } else if (inputFormat === '.flac') {
+                return ['.mp3', '.wav', '.ogg'];
+            } else {
+                return;
+            }
+        }
+    </script>
+</body>
+</html>

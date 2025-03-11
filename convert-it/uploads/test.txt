@@ -1,0 +1,8 @@
+{\rtf1\ansi
+{\fonttbl{\f0\fswiss Helvetica;
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;
+\pard\f0\fs24 This is an example of some {\b bold text.\par
+This is some {\i italic text.\par
+This is some {\ul underlined text.\par
+This line has some {\cf1 red text and some {\cf2 blue text.\par
+
