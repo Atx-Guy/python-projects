@@ -1,0 +1,17 @@
+prefix=/home/ryan/python-projects/convert-it/my-conda-env
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+sysconfdir=/home/ryan/python-projects/convert-it/my-conda-env/etc
+localstatedir=/home/ryan/python-projects/convert-it/my-conda-env/var
+confdir=/home/ryan/python-projects/convert-it/my-conda-env/etc/fonts
+cachedir=/home/ryan/python-projects/convert-it/my-conda-env/var/cache/fontconfig
+
+Name: Fontconfig
+Description: Font configuration and customization library
+Version: 2.15.0
+Requires: freetype2 >=  21.0.15
+Requires.private: expat
+Libs: -L${libdir} -lfontconfig
+Libs.private: -pthread
+Cflags: -I${includedir}

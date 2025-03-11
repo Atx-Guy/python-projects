@@ -1,0 +1,14 @@
+prefix=/home/ryan/python-projects/convert-it/my-conda-env
+exec_prefix=/home/ryan/python-projects/convert-it/my-conda-env
+libdir=/home/ryan/python-projects/convert-it/my-conda-env/lib
+includedir=/home/ryan/python-projects/convert-it/my-conda-env/include
+
+Name: FreeType 2
+URL: https://freetype.org
+Description: A free, high-quality, and portable font engine.
+Version: 24.3.18
+Requires: 
+Requires.private: zlib, libpng
+Libs: -L/home/ryan/python-projects/convert-it/my-conda-env/lib -lfreetype
+Libs.private: 
+Cflags: -I${includedir}/freetype2

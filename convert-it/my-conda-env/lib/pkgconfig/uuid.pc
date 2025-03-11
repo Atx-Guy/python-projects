@@ -1,0 +1,11 @@
+prefix=/home/ryan/python-projects/convert-it/my-conda-env
+exec_prefix=/home/ryan/python-projects/convert-it/my-conda-env
+libdir=/home/ryan/python-projects/convert-it/my-conda-env/lib
+includedir=/home/ryan/python-projects/convert-it/my-conda-env/include
+
+Name: uuid
+Description: Universally unique id library
+Version: 2.38.1
+Requires:
+Cflags: -I${includedir}/uuid
+Libs: -L${libdir} -luuid
